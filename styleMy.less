@@ -1,0 +1,118 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a{
+	text-decoration: none;
+	display: block;
+	font-size: 13px;
+	color: rgba(0,0,0,.6);
+	padding: 10px;
+	position: relative;
+	transition: .3s linear;
+}
+a:hover{
+	background-color: black;
+	color:white;
+}
+ul{
+	list-style: none;
+}
+body{
+	height: 100vh;
+	background-color: black;
+}
+header{
+	height: 10vh;
+	background: black url("img/header.jpg") no-repeat fixed top;
+	background-size: cover;
+}
+main{
+	height: 75vh;
+	padding: 3%;
+	background-color: white;
+	width: 100vw;
+	background-image: linear-gradient(to bottom, black, white 20%, white 40%, black);
+	display: flex;
+	justify-content: space-between;
+	div.text{
+		width: 40vw;
+		h1{
+			text-align: center;}
+	}
+	div{padding: 10px;}
+	/*--------------------------------nav------------------------------------*/
+	.nav {
+		padding: 15px;
+		width: 200px;
+		margin-right: 120px;
+		h3{
+			font-size: 16px;
+			color: rgba(0,0,0,.6);
+			margin: 0 0 10px;
+			padding: 0 5px;
+			position: relative;}
+		h3:after{
+			content: "";
+			width: 6px;
+			height: 6px;
+			background: black;
+			position: absolute;
+			right: 5px;
+			bottom: 2px;
+			box-shadow: -8px -8px black, 0 -8px black, -8px 0 black;}
+		ul{
+			padding: 0;
+			border-top: 1px solid rgba(0,0,0,.3);
+			li{
+				margin-top: 12px;
+				ul.submenu{
+					position: absolute;
+					left: 200px;
+					z-index: 5;
+					width: 200px;
+					visibility: hidden;
+					transition: .5s ease-in-out;
+					border-top-width: 0;
+					li{
+						position: relative;
+						margin-top: 12px;}
+				}
+			}
+			li:hover>ul.submenu{
+				visibility: visible;
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
+	}
+	/*----------------------------------end------------------------------------*/
+	div.img>img{
+		height: 60vh;
+		border: 1px dotted black;
+	}
+}
+footer{
+	height: 15vh;
+	background: black url("img/footer.jpg") no-repeat fixed bottom;
+	background-size: cover;
+	position: relative;
+	width: 100%;
+	left: 0; bottom: 0;
+}
+div.black{
+	color: white;
+	background: rgba(0,0,0, 0.7);
+	width: 230px;
+	padding: 8px;
+	margin-right: 10%;
+	float: right;
+}
+img.small{
+	width: 25px;
+	height: 25px;
+}
+
+
