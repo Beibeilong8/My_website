@@ -2,58 +2,177 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
+*::selection{background-color: olive;}
+/*------------------------------------------media-------------------------------------------*/
+@media(min-width: 1210px){
+	div.nav {
+		ul {
+			li {
+				width: 150px;
+				padding-top: 10px;
+			}
+		}
+	}
+	ul.submenu{
+		width: 300px;
+		li{padding-left: 20px;}
+	}
 }
-a{
+@media(max-width: 1200px){
+	main{
+		width: 950px;
+		div.nav{
+			ul{width: 150px;}
+		}
+	}
+	div.text>.h1{padding-top: 10vh;}
+	ul.submenu{left: 200px;}
+}
+@media(max-width: 992px){
+	main{width: 750px;
+		div.nav{
+			ul{width: 170px;}
+		}
+	}
+}
+@media(min-width: 769px){ nav>ul>li, div.container{display: none;}  }
+@media(max-width: 768px){
+	/*---------------------------burger menu---------------------------------*/
+	/*---------burger-----------*/
+	div.menu-burger__header{
+		visibility: visible;
+		position: relative;
+		width: 40px;
+		height: 35px;
+		display: block;
+		margin-left: 10px;
+		margin-top: 25px;}
+	.menu-burger__header span, .menu-burger__header:after, .menu-burger__header:before{
+		height: 3px;
+		width: 100%;
+		position: absolute;
+		background: white;}
+	.menu-burger__header span{top: 0;}
+	.menu-burger__header:after, .menu-burger__header:before{content: '';}
+	.menu-burger__header:after{bottom: 20px;}
+	.menu-burger__header:before{top: -11px;}
+	/*--------end burger--------*/
+	.header__nav {
+		display: block;
+		position: absolute;
+		left: 0;
+		background: rgb(245, 246, 246);
+		box-shadow: transparent;
+		width: 100%;}
+	.header__nav.open-menu {left: 0;}
+	.header__menu {display: none;}
+	.header__menu li {padding: 15px;}
+	/*---------------------------end burger menu---------------------------------*/
+	main{
+		text-align: center;
+		width: 630px;
+	}
+	div.text{
+		.h1{padding-top: 100px;}
+		.hello{padding-top: 0;}
+		}
+	div.nav{
+		visibility: hidden;
+		position: absolute;}
+}
+@media(max-width: 640px){
+	main {
+		flex-direction: column;
+		font-size: 10px;
+		div.text {
+			width: 90vw !important;
+			align-self: stretch !important;
+			font-size: 16px !important;
+			.h1{padding-top: 0; !important}
+		}
+		div.img{
+			width: 90vw !important;
+			height: 50vh !important;
+			margin-bottom: 20px !important;
+			img{height: 50vh !important;}
+		}
+	}
+}
+@media(max-width: 480px){
+	font-size: 10px;
+	margin: 0;
+	padding: 0;
+	div.hello {
+		width: 90vw !important;
+		align-self: stretch !important;
+		font-size: 16px !important;
+		.h1{padding-top: 0 !important;}
+	}
+}
+/*-------------------------------------media------------------------------------------------*/
+
+div.container:hover{
+	.header__menu {display: block;}
+	div.container {visibility: visible;}}
+.a(@color: rgba(0,0,0,.6), @padding: 10px){
 	text-decoration: none;
 	display: block;
-	font-size: 13px;
-	color: rgba(0,0,0,.6);
-	padding: 10px;
+	font-size: 15px;
+	color: @color;
+	padding: @padding;
 	position: relative;
-	transition: .3s linear;
 }
-a:hover{
-	background-color: black;
+a{.a();}
+.a_hover(@bg_color: black){
+	background-color: @bg_color;
 	color:white;
 }
-ul{
-	list-style: none;
-}
+a:hover{.a_hover();}
+ul{list-style: none;}
 body{
-	height: 100vh;
 	background-color: black;
+	display: flex;
+	flex-direction: column;
 }
 header{
-	height: 10vh;
+	height: 80px;
 	background: black url("img/header.jpg") no-repeat fixed top;
 	background-size: cover;
 }
 main{
-	height: 75vh;
-	padding: 3%;
+	padding: 5%;
 	background-color: white;
 	width: 100vw;
 	background-image: linear-gradient(to bottom, black, white 20%, white 40%, black);
 	display: flex;
 	justify-content: space-between;
 	div.text{
+		padding-top: 1vh;
 		width: 40vw;
-		h1{
-			text-align: center;}
+		height: 20vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		text-align: center;
+		.h1{
+			text-align: center;
+			padding-bottom: 10px;
+			font-style: italic}
 	}
 	div{padding: 10px;}
 	/*--------------------------------nav------------------------------------*/
 	.nav {
 		padding: 15px;
-		width: 200px;
-		margin-right: 120px;
+		width: 200px !important;
+		margin-right: 10vw;
 		h3{
 			font-size: 16px;
 			color: rgba(0,0,0,.6);
 			margin: 0 0 10px;
 			padding: 0 5px;
 			position: relative;}
+		/*-----------cubes------------*/
 		h3:after{
 			content: "";
 			width: 6px;
@@ -63,6 +182,7 @@ main{
 			right: 5px;
 			bottom: 2px;
 			box-shadow: -8px -8px black, 0 -8px black, -8px 0 black;}
+		/*-----------end cubes------------*/
 		ul{
 			padding: 0;
 			border-top: 1px solid rgba(0,0,0,.3);
@@ -70,12 +190,13 @@ main{
 				margin-top: 12px;
 				ul.submenu{
 					position: absolute;
-					left: 200px;
+					left: 210px;
+					top: 170px;
 					z-index: 5;
 					width: 200px;
 					visibility: hidden;
-					transition: .5s ease-in-out;
 					border-top-width: 0;
+					border-left: 1px solid rgba(0,0,0,.3);
 					li{
 						position: relative;
 						margin-top: 12px;}
@@ -84,35 +205,40 @@ main{
 			li:hover>ul.submenu{
 				visibility: visible;
 				opacity: 1;
-				transform: translateY(0px);
+				transform: translateY(0px);}
+		}
+	}
+	/*----------------------------------end nav------------------------------------*/
+	div.img>img{
+		height: 60vh;
+		border: 1px dotted black;}
+}
+footer {
+	min-height: 150px;
+	height: 10vh;
+	background: black url("img/footer.jpg") no-repeat fixed bottom;
+	background-size: cover;
+	width: 100vw;
+	display: flex;
+	justify-content: flex-end;
+	div.black {
+		color: white;
+		background: rgba(0, 0, 0, 0.7);
+		width: 230px;
+		padding: 5px;
+		margin-right: 5px;
+		display: flex;
+		flex-direction: column;
+		h4{padding-bottom: 5px;}
+		a{.a(white, 3px)}
+		div{
+			display: flex;
+			a{
+				img.small {
+					width: 25px;
+					height: 25px;}
 			}
 		}
 	}
-	/*----------------------------------end------------------------------------*/
-	div.img>img{
-		height: 60vh;
-		border: 1px dotted black;
-	}
 }
-footer{
-	height: 15vh;
-	background: black url("img/footer.jpg") no-repeat fixed bottom;
-	background-size: cover;
-	position: relative;
-	width: 100%;
-	left: 0; bottom: 0;
-}
-div.black{
-	color: white;
-	background: rgba(0,0,0, 0.7);
-	width: 230px;
-	padding: 8px;
-	margin-right: 10%;
-	float: right;
-}
-img.small{
-	width: 25px;
-	height: 25px;
-}
-
 

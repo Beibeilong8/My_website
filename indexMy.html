@@ -3,14 +3,31 @@
 <head>
 	<meta charset="utf-8"/><!--Кодировка-->
 	<title>Recipes</title><!--Название страницы-->
-	<link rel="stylesheet" type="text/css" href="stylemy.css" />
+	<link rel="stylesheet" type="text/css" href="styleMy.css" />
 	<link rel="icon" type="image/x-icon" sizes="32x32" href="favicon.ico">
 </head>
 <body>
 <header>
-	<nav>ks</nav>
+	<!------------------------burger menu---------------------->
+	<div class="container">
+		<a href="#">
+			<div class="menu-burger__header">
+			<span></span>
+			</div>
+		</a>
+		<nav class="header__nav">
+			<ul class="menu header__menu">
+				<li><h3>Рецепты</h3></li>
+				<li><a rel="nofollow" rel="noreferrer" class="nav-item" href="">Первые блюда</a></li>
+				<li><a rel="nofollow" rel="noreferrer" class="nav-item" href="">Вторые блюда</a></li>
+				<li><a rel="nofollow" rel="noreferrer" class="nav-item" href="">Выпечка</a></li>
+				<li><a rel="nofollow" rel="noreferrer" class="nav-item" href="">Завтраки</a></li>
+			</ul>
+		</nav>
+	</div>
 </header>
 <main>
+	<!------------------------menu---------------------->
 		<div class="nav">
 			<h3>Рецепты</h3>
 			<ul>
@@ -28,6 +45,7 @@
 						<li><a href="">Крылышки в медово-горчичном соусе</a></li>
 						<li><a href="">Спагетти Болоньезе</a></li>
 						<li><a href="">Лазанья</a></li>
+						<li><a href="">Гуляш</a></li>
 					</ul>
 				</li>
 				<li><a href="">Выпечка</a>
@@ -49,29 +67,28 @@
 			</ul>
 		</div>
 		<div class="text">
-			<h1>Рецепты. Просто рецепты</h1><br/><br/>
-			<b>Здравствуйте, меня зовут Карина.</b><br/><br/>
+			<div class="h1">Рецепты. Просто рецепты</div>
+			<div class="hello"><b>Здравствуйте, меня зовут Карина.</b><br/>
 			Этот сайт создан в качестве эксперимента - для того, чтобы собрать в одном месте все проверенные мной рецепты, а также чтобы попрактиковаться в Front-End разработке
-			<br/><br/>
-			Слева вы можете ознакомиться со списком рецептов. <br/>
-			Справа вы видите кошку, которая является главным дегустатором на кухне. <br/>
+			<br/>
+			А это - Оливка, главный дегустатор на кухне. <br/></div>
 		</div>
 		<div class="img"><img src="img/olivka.jpg" alt="Миу"></div>
 </main>
-<footer><br/>
+<footer>
 	<div class="black">
 		<h4>Контакты:</h4>
-		<a href="tel:+375293620572" target="_blank">+375293620572</a><br/>
+		<a href="tel:+375293620572" target="_blank">+375293620572</a>
 		<a href="mailto:ask@htmlbook.ru" target="_blank">Karina.Komarovich@gmail.com</a>
-		<div class="img">
+		<div>
 			<a href="https://t.me/Valkiria1301" target="_blank">
-				<img class="small" src="img/telegram.png"/>
+				<img class="small" alt="" src="img/telegram.png"/>
 			</a>
 			<a href="viber://add?number=+375293620572" target="_blank">
-				<img class="small" id="viber" src="img/viber.png" target="_blank"/>
+				<img class="small" id="viber" alt="" src="img/viber.png" target="_blank"/>
 			</a>
 			<a href="https://www.instagram.com/beibeilong_/" target="_blank">
-				<img class="small" id="insta" src="img/instagram.png"/>
+				<img class="small" id="insta" alt="" src="img/instagram.png"/>
 			</a>
 		</div>
 	</div>

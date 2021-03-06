@@ -4,14 +4,156 @@
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+*::selection {
+  background-color: olive;
+}
+/*------------------------------------------media-------------------------------------------*/
+@media (min-width: 1210px) {
+  div.nav ul li {
+    width: 150px;
+    padding-top: 10px;
+  }
+  ul.submenu {
+    width: 300px;
+  }
+  ul.submenu li {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 1200px) {
+  main {
+    width: 950px;
+  }
+  main div.nav ul {
+    width: 150px;
+  }
+  div.text > .h1 {
+    padding-top: 10vh;
+  }
+  ul.submenu {
+    left: 200px;
+  }
+}
+@media (max-width: 992px) {
+  main {
+    width: 750px;
+  }
+  main div.nav ul {
+    width: 170px;
+  }
+}
+@media (min-width: 769px) {
+  nav > ul > li,
+  div.container {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  /*---------------------------burger menu---------------------------------*/
+  /*---------burger-----------*/
+  div.menu-burger__header {
+    visibility: visible;
+    position: relative;
+    width: 40px;
+    height: 35px;
+    display: block;
+    margin-left: 10px;
+    margin-top: 25px;
+  }
+  .menu-burger__header span,
+  .menu-burger__header:after,
+  .menu-burger__header:before {
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    background: white;
+  }
+  .menu-burger__header span {
+    top: 0;
+  }
+  .menu-burger__header:after,
+  .menu-burger__header:before {
+    content: '';
+  }
+  .menu-burger__header:after {
+    bottom: 20px;
+  }
+  .menu-burger__header:before {
+    top: -11px;
+  }
+  /*--------end burger--------*/
+  .header__nav {
+    display: block;
+    position: absolute;
+    left: 0;
+    background: #f5f6f6;
+    box-shadow: transparent;
+    width: 100%;
+  }
+  .header__nav.open-menu {
+    left: 0;
+  }
+  .header__menu {
+    display: none;
+  }
+  .header__menu li {
+    padding: 15px;
+  }
+  /*---------------------------end burger menu---------------------------------*/
+  main {
+    text-align: center;
+    width: 630px;
+  }
+  div.text .h1 {
+    padding-top: 100px;
+  }
+  div.text .hello {
+    padding-top: 0;
+  }
+  div.nav {
+    visibility: hidden;
+    position: absolute;
+  }
+}
+@media (max-width: 640px) {
+  main {
+    flex-direction: column;
+    font-size: 10px;
+  }
+  main div.text {
+    width: 90vw !important;
+    align-self: stretch;
+    font-size: 16px;
+  }
+  main div.text .h1 {
+    padding-top: 0;
+  }
+  main div.img {
+    width: 90vw;
+    height: 50vh !important;
+    margin-bottom: 20px;
+  }
+  main div.img img {
+    height: 50vh !important;
+  }
+}
+@media (max-width: 480px) {
+
+}
+/*-------------------------------------media------------------------------------------------*/
+div.container:hover .header__menu {
+  display: block;
+}
+div.container:hover div.container {
+  visibility: visible;
+}
 a {
   text-decoration: none;
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   color: rgba(0, 0, 0, 0.6);
   padding: 10px;
   position: relative;
-  transition: 0.3s linear;
 }
 a:hover {
   background-color: black;
@@ -21,38 +163,48 @@ ul {
   list-style: none;
 }
 body {
-  height: 100vh;
   background-color: black;
+  display: flex;
+  flex-direction: column;
 }
 header {
-  height: 10vh;
+  height: 80px;
   background: black url("img/header.jpg") no-repeat fixed top;
   background-size: cover;
 }
 main {
-  height: 75vh;
-  padding: 3%;
+  padding: 5%;
   background-color: white;
   width: 100vw;
   background-image: linear-gradient(to bottom, black, white 20%, white 40%, black);
   display: flex;
   justify-content: space-between;
   /*--------------------------------nav------------------------------------*/
-  /*----------------------------------end------------------------------------*/
+  /*----------------------------------end nav------------------------------------*/
 }
 main div.text {
+  padding-top: 1vh;
   width: 40vw;
-}
-main div.text h1 {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   text-align: center;
+}
+main div.text .h1 {
+  text-align: center;
+  padding-bottom: 10px;
+  font-style: italic;
 }
 main div {
   padding: 10px;
 }
 main .nav {
   padding: 15px;
-  width: 200px;
-  margin-right: 120px;
+  width: 200px !important;
+  margin-right: 10vw;
+  /*-----------cubes------------*/
+  /*-----------end cubes------------*/
 }
 main .nav h3 {
   font-size: 16px;
@@ -80,12 +232,13 @@ main .nav ul li {
 }
 main .nav ul li ul.submenu {
   position: absolute;
-  left: 200px;
+  left: 210px;
+  top: 170px;
   z-index: 5;
   width: 200px;
   visibility: hidden;
-  transition: 0.5s ease-in-out;
   border-top-width: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
 }
 main .nav ul li ul.submenu li {
   position: relative;
@@ -101,23 +254,38 @@ main div.img > img {
   border: 1px dotted black;
 }
 footer {
-  height: 15vh;
+  min-height: 150px;
+  height: 10vh;
   background: black url("img/footer.jpg") no-repeat fixed bottom;
   background-size: cover;
-  position: relative;
-  width: 100%;
-  left: 0;
-  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
 }
-div.black {
+footer div.black {
   color: white;
   background: rgba(0, 0, 0, 0.7);
   width: 230px;
-  padding: 8px;
-  margin-right: 10%;
-  float: right;
+  padding: 5px;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
 }
-img.small {
+footer div.black h4 {
+  padding-bottom: 5px;
+}
+footer div.black a {
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  color: white;
+  padding: 3px;
+  position: relative;
+}
+footer div.black div {
+  display: flex;
+}
+footer div.black div a img.small {
   width: 25px;
   height: 25px;
 }
